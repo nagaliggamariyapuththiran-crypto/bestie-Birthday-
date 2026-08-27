@@ -1,11 +1,156 @@
-<!doctype html><html lang="ta"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Happy Birthday Abinaya 💜</title><style>*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#12051c;color:#fff}.screen{min-height:100vh;display:none;align-items:center;justify-content:center;padding:18px;background:radial-gradient(circle at top,#5b1b82,#12051c 65%)}.active{display:flex}.card{width:min(94vw,460px);max-height:94vh;overflow:auto;text-align:center;padding:25px;border-radius:28px;background:#ffffff12;backdrop-filter:blur(12px);box-shadow:0 20px 60px #0008}h1{font-size:29px}.sub{line-height:1.6;color:#eadcf4}.btn,.opt{border:0;border-radius:18px;padding:14px 18px;margin:7px;background:#a85bdf;color:#fff;font-weight:700;font-size:15px}.opt{display:block;width:100%;background:#ffffff15;text-align:left}.opt.sel{background:#a85bdf}.photo{width:100%;max-height:420px;object-fit:cover;border-radius:20px;margin:10px 0}.letter{text-align:left;line-height:1.75;font-size:15px}.count{font-size:90px;font-weight:900}#balloons{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px}.balloon{font-size:44px;cursor:pointer}.pop{opacity:0;transform:scale(1.8);pointer-events:none}.teddy{font-size:105px}.cake{font-size:110px}.wish{font-size:34px;font-weight:900}.conf{position:fixed;top:-20px;z-index:99;font-size:24px;animation:fall 2.2s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}</style></head><body>
-<section id="start" class="screen active"><div class="card"><div style="font-size:55px">🎁💜</div><h1>A Little Surprise For You</h1><p class="sub">Ready, Abinaya? 🥰<br>Something special is waiting...</p><button class="btn" onclick="countdown()">OPEN MY SURPRISE ✨</button></div></section>
-<section id="count" class="screen"><div class="card"><div id="num" class="count">5</div><p class="sub">Get ready... 💜</p></div></section>
-<section id="q" class="screen"><div class="card"><small id="qno">QUESTION 1 / 5</small><h1 id="qt"></h1><div id="opts"></div><button id="next" class="btn" disabled onclick="nextQ()">NEXT →</button></div></section>
-<section id="letter" class="screen"><div class="card"><h1>💌 For You, Bestie 💜</h1><img class="photo" src="abhinaya1.jpg"><div class="letter">Hi<br>Iam AARUKSHI 💜<br><br>HAPPY BIRTHDAY 🎂🥰<br><br>HAPPY YA IRUGGO SAFE AH IRUGGO. INDELA IRUNTHU PALAYA VIDAYAGGALAI ELLAM MARANTHUDDU HAPPY YA IRUGGO AND YAR ENA SONNALUM KEKKATHA AND INTHA BIRTHDAY LA IRUNTHU AAVATHU ALATHA SINNA SINNA VISHAYATHTHUKKU ELLAM ALATHA OK.<br><br>HAPPY YA IRU NEEGGA HAPPY YA IRUKKA AS A FRIEND AH ENA SEIYANUMO ATHA NAN SEIVAN. YARUM ILLA ALONE NNU ELLAM THINK PANNATHA JUST FRD NAN. IRUKKAN OK SAFE AH HAPPY YA UN JOURNEY YA THODAGGUGGO.<br><br>AND IVALAVU NAL NAN SEIYURA THONTHARAVU AND KASTAM ELLATHTHUKKUM SORRY. NANE UNNA EVVALAVO ALA VACHCHURUKKAN SORRY.<br><br>ITHELLAM MARNTHU EN ENNA KUDA MARANTHU PUTHU ALAGANA JOURNEY YA THODAGGU.<br><br>WISH YOUR MANY MORE HAPPY RETURNS OF THE DAY 🎂🥰<br><br>AND ITHA NAN COODING KUDUTHU THAN ORUVAKKINAN NAN ATHULA MATHINAN FRD NNU ATHU MARUTHU ILLA MARINA COODING ERROR NNU KADDUTHU ITHUKKU NAN KARAM ILLA SORRY.<br><br><strong>By - JUST FRIEND 💜</strong></div><button class="btn" onclick="show('balloons')">CONTINUE → 🎈</button></div></section>
-<section id="balloons" class="screen"><div class="card"><h1>16 Little Wishes 💜</h1><p class="sub">Tap all 16 balloons! 🎈</p><div id="bs"></div><p id="bm" class="sub">16 left</p><button id="wb" class="btn" style="display:none" onclick="show('birthday')">OPEN THE SURPRISE 🎉</button></div></section>
-<section id="birthday" class="screen"><div class="card"><img class="photo" src="abhinaya2.png"><div style="font-size:45px">💜✨🎉✨💜</div><div class="wish">HAPPY BIRTHDAY<br>ABINAYA ❤️</div><p class="sub">Happy 16th Birthday! 🥰</p><button class="btn" onclick="show('teddy')">NEXT → 🧸</button></div></section>
-<section id="teddy" class="screen"><div class="card"><div class="teddy">🧸💜</div><h1>Special Teddy Wish</h1><p class="sub">Happy Birthday Abinaya! 💜<br>Always smile, stay happy and enjoy your beautiful journey. 🥰</p><button class="btn" onclick="show('cake')">NEXT → 🎂</button></div></section>
-<section id="cake" class="screen"><div class="card" style="background:#0b0610"><h1>One Last Little Thing... 🌙</h1><p class="sub">Press the button to blow out the candle 🕯️</p><div class="cake">🎂</div><div id="flame" style="font-size:70px">🕯️</div><button class="btn" onclick="blow()">BLOW THE CANDLE 🕯️</button></div></section>
-<section id="final" class="screen"><div class="card"><div style="font-size:55px">🎉💜🎂💜🎉</div><div class="wish">ENJOY YOUR 16 ❤️</div><img class="photo" src="abhinaya1.jpg"><p class="sub">Happy Birthday once again, Abinaya! 🥰💜</p></div></section>
-<script>const qs=[["நான் உனக்கு யாரு? 👀",["Frd.","Best frd. 💜","Bestie 🫶","Favourite person ❤️"]],["நான் உனக்கு எவ்வளவு பிடிக்கும்? 🥹💜",["25%","50%","75%","100% ❤️"]],["நம்ம friendship-ல உனக்கு அதிகம் பிடித்தது எது? 💭",["நம்ம talks 💬","நம்ம memories 📸","நம்ம craziness 😂","எல்லாமே 💜"]],["நம்ம friendship-ஐ ஒரு வார்த்தையில் சொல்லணும்னா? ✨",["Special 💜","Crazy 😂","Unforgettable 🥹","Forever ♾️"]],["நம்ம friendship எவ்வளவு காலம் இருக்கணும்? ♾️",["1 year","10 years","50 years","Forever ♾️💜"]]];let qi=0,ans=[];function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(id==='q')renderQ();if(id==='balloons')makeB();}function countdown(){show('count');let n=5,t=setInterval(()=>{n--;num.textContent=n;if(!n){clearInterval(t);show('q')}},1000)}function renderQ(){qno.textContent='QUESTION '+(qi+1)+' / 5';qt.textContent=qs[qi][0];opts.innerHTML='';next.disabled=true;qs[qi][1].forEach((x,i)=>{let b=document.createElement('button');b.className='opt';b.textContent=x;b.onclick=()=>{document.querySelectorAll('.opt').forEach(z=>z.classList.remove('sel'));b.classList.add('sel');next.disabled=false;next.onclick=()=>{ans.push(x);localStorage.setItem('abhinaya_answers',JSON.stringify(ans));if(qi<4){qi++;renderQ()}else show('letter')}};opts.appendChild(b)})}function makeB(){bs.innerHTML='';for(let i=0;i<16;i++){let b=document.createElement('div');b.className='balloon';b.textContent='🎈';b.onclick=()=>pop(b,i);bs.appendChild(b)}}function pop(b,i){if(b.classList.contains('pop'))return;b.classList.add('pop');let left=15-document.querySelectorAll('.balloon.pop').length+1;bm.textContent=(16-document.querySelectorAll('.balloon.pop').length)+' left 💜';for(let j=0;j<6;j++){let c=document.createElement('div');c.className='conf';c.textContent=['🎉','✨','💜','🎊'][j%4];c.style.left=Math.random()*95+'vw';document.body.appendChild(c);setTimeout(()=>c.remove(),2300)}if(document.querySelectorAll('.balloon.pop').length===16){bm.textContent='16/16! 🎉';wb.style.display='inline-block'}}function blow(){flame.textContent='💨';for(let i=0;i<25;i++){let c=document.createElement('div');c.className='conf';c.textContent=['🎉','✨','💜','🎊'][i%4];c.style.left=Math.random()*95+'vw';document.body.appendChild(c);setTimeout(()=>c.remove(),2300)}setTimeout(()=>show('final'),900)}</script></body></html>
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Abinaya 💜</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  font-family:system-ui,sans-serif;
+  background:#05000d;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ===== SPACE BACKGROUND ===== */
+
+.space{
+  position:fixed;
+  inset:0;
+  z-index:-10;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 20%,#431060 0%,#160522 38%,#05000d 80%);
+}
+
+.stars,
+.stars2,
+.stars3{
+  position:absolute;
+  inset:-50%;
+  width:200%;
+  height:200%;
+  background-repeat:repeat;
+  pointer-events:none;
+}
+
+.stars{
+  background-image:
+    radial-gradient(circle,#fff 1px,transparent 1.5px);
+  background-size:75px 75px;
+  animation:moveStars 35s linear infinite;
+  opacity:.75;
+}
+
+.stars2{
+  background-image:
+    radial-gradient(circle,#dcb7ff 1.2px,transparent 1.8px);
+  background-size:120px 120px;
+  animation:moveStars 55s linear infinite reverse;
+  opacity:.55;
+}
+
+.stars3{
+  background-image:
+    radial-gradient(circle,#fff 1.5px,transparent 2px);
+  background-size:190px 190px;
+  animation:twinkle 2.5s ease-in-out infinite alternate;
+  opacity:.7;
+}
+
+@keyframes moveStars{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+    transform:translate(-120px,80px);
+  }
+}
+
+@keyframes twinkle{
+  from{
+    opacity:.25;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+/* ===== SCREENS ===== */
+
+.screen{
+  min-height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  position:relative;
+}
+
+.active{
+  display:flex;
+}
+
+/* ===== CARD ===== */
+
+.card{
+  width:min(94vw,460px);
+  max-height:94vh;
+  overflow:auto;
+  text-align:center;
+  padding:25px;
+  border-radius:30px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.15);
+  backdrop-filter:blur(15px);
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.7),
+    0 0 35px rgba(168,91,223,.2);
+}
+
+h1{
+  font-size:29px;
+  margin-top:10px;
+}
+
+.sub{
+  line-height:1.6;
+  color:#eadcf4;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn,
+.opt{
+  border:0;
+  border-radius:18px;
+  padding:14px 18px;
+  margin:7px;
+  background:linear-gradient(135deg,#a85bdf,#7130a5);
+  color:white;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 7px 20px rgba(0,0,0,.3);
+  transition:.2s;
+}
+
+.btn:hover,
+.opt:hover{
+  transform:translateY(-2px) scale(1.02);
+}
+
+.btn:active,
+.opt:
