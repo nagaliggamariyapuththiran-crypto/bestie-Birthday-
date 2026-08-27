@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Abinaya ❤️</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -16,973 +15,564 @@ html,body{
   padding:0;
   width:100%;
   min-height:100%;
+  background:#000;
 }
 
 body{
-  font-family:Arial,system-ui,sans-serif;
-  background:#000;
+  font-family:Arial,sans-serif;
   color:#fff;
   overflow-x:hidden;
 }
 
-/* =================================================
-   FULL BLACK SPACE
-================================================= */
+/* =========================
+   BLACK SPACE
+========================= */
 
 .space{
   position:fixed;
   inset:0;
-  z-index:-10;
   background:#000;
   overflow:hidden;
+  z-index:-5;
 }
 
-/* GOLD STARS */
-
-.stars,
-.stars2,
-.stars3{
+.star{
   position:absolute;
-  inset:-50%;
-  width:200%;
-  height:200%;
-  background-repeat:repeat;
-  pointer-events:none;
-}
-
-.stars{
-  background-image:
-    radial-gradient(circle,#FFD700 1px,transparent 1.6px);
-  background-size:60px 60px;
-  animation:starMove 35s linear infinite;
-  opacity:.9;
-}
-
-.stars2{
-  background-image:
-    radial-gradient(circle,#FFF1A8 1.3px,transparent 2px);
-  background-size:115px 115px;
-  animation:starMove2 50s linear infinite reverse;
-  opacity:.7;
-}
-
-.stars3{
-  background-image:
-    radial-gradient(circle,#FFD700 1.8px,transparent 2.5px);
-  background-size:190px 190px;
-  animation:twinkle 2s ease-in-out infinite alternate;
-  opacity:.8;
-}
-
-@keyframes starMove{
-
-  from{
-    transform:translate(0,0);
-  }
-
-  to{
-    transform:translate(-130px,90px);
-  }
-
-}
-
-@keyframes starMove2{
-
-  from{
-    transform:translate(0,0);
-  }
-
-  to{
-    transform:translate(100px,-70px);
-  }
-
+  width:3px;
+  height:3px;
+  background:#FFD700;
+  border-radius:50%;
+  box-shadow:0 0 6px #FFD700;
+  animation:twinkle 2s infinite alternate;
 }
 
 @keyframes twinkle{
-
   from{
     opacity:.2;
+    transform:scale(.7);
   }
-
   to{
     opacity:1;
+    transform:scale(1.5);
   }
-
 }
 
+/* =========================
+   INTRO
+========================= */
 
-/* =================================================
-   SPACE INTRO
-================================================= */
-
-#spaceIntro{
-
+#intro{
   position:fixed;
   inset:0;
-
   z-index:9999;
-
   background:#000;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
-  flex-direction:column;
-
   overflow:hidden;
-
-  animation:introDisappear 1.2s ease 6s forwards;
-
+  transition:opacity 1.2s ease,visibility 1.2s ease;
 }
 
+#intro.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
 
-/* INTRO GOLD STARS */
-
-.introStars{
-
+.introStar{
   position:absolute;
-
-  inset:-50%;
-
-  width:200%;
-
-  height:200%;
-
-  background-image:
-    radial-gradient(circle,#FFD700 1px,transparent 1.5px);
-
-  background-size:55px 55px;
-
-  animation:introStarsMove 12s linear infinite;
-
-  opacity:.9;
-
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#FFD700;
+  box-shadow:0 0 8px #FFD700;
+  animation:introStarMove 4s linear infinite;
 }
 
-@keyframes introStarsMove{
-
-  to{
-    transform:translate(-100px,120px);
+@keyframes introStarMove{
+  from{
+    transform:translateY(0) scale(.5);
+    opacity:.2;
   }
-
+  to{
+    transform:translateY(100vh) scale(1.5);
+    opacity:1;
+  }
 }
 
-
-/* =================================================
-   GOLD GLOW HEART
-================================================= */
+/* GOLD HEART */
 
 .heart{
-
   position:relative;
-
-  width:105px;
-  height:105px;
-
+  width:90px;
+  height:90px;
   background:#FFD700;
-
   transform:rotate(-45deg);
-
   box-shadow:
-
-    0 0 8px #FFD700,
-
-    0 0 20px #FFD700,
-
-    0 0 45px #FFD700,
-
-    0 0 90px #FFB300;
-
-  animation:heartAnimation 5.5s ease-in-out forwards;
-
+    0 0 15px #FFD700,
+    0 0 35px #FFD700,
+    0 0 70px #FFB300;
+  animation:heartShow 4.8s ease-in-out forwards;
 }
 
-
-.heart::before,
-.heart::after{
-
+.heart:before,
+.heart:after{
   content:"";
-
   position:absolute;
-
-  width:105px;
-  height:105px;
-
-  border-radius:50%;
-
+  width:90px;
+  height:90px;
   background:#FFD700;
-
+  border-radius:50%;
 }
 
-
-.heart::before{
-
-  top:-52px;
+.heart:before{
+  top:-45px;
   left:0;
-
 }
 
-
-.heart::after{
-
+.heart:after{
+  left:45px;
   top:0;
-  left:52px;
-
 }
 
-
-@keyframes heartAnimation{
-
+@keyframes heartShow{
   0%{
-
     transform:rotate(-45deg) scale(.05);
-
     opacity:0;
-
   }
 
-  15%{
-
-    transform:rotate(-45deg) scale(.5);
-
+  20%{
+    transform:rotate(-45deg) scale(.8);
     opacity:1;
-
   }
 
-  35%{
-
-    transform:rotate(-45deg) scale(1);
-
-  }
-
-  50%{
-
-    transform:rotate(-45deg) scale(1.15);
-
-  }
-
-  65%{
-
-    transform:rotate(-45deg) scale(.95);
-
-  }
-
-  100%{
-
-    transform:rotate(-45deg) scale(14);
-
-    opacity:0;
-
-  }
-
-}
-
-
-/* INTRO TEXT */
-
-.introText{
-
-  position:absolute;
-
-  top:68%;
-
-  text-align:center;
-
-  font-size:16px;
-
-  font-weight:bold;
-
-  letter-spacing:3px;
-
-  line-height:1.7;
-
-  color:#FFD700;
-
-  text-shadow:
-
-    0 0 8px #FFD700,
-
-    0 0 20px #FFD700;
-
-  opacity:0;
-
-  animation:introTextAppear 2s ease 1s forwards;
-
-}
-
-
-@keyframes introTextAppear{
-
-  from{
-
-    opacity:0;
-
-    transform:translateY(20px);
-
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-  }
-
-}
-
-
-@keyframes introDisappear{
-
-  0%{
-
-    opacity:1;
-
-    visibility:visible;
-
-  }
-
-  100%{
-
-    opacity:0;
-
-    visibility:hidden;
-
-    pointer-events:none;
-
-  }
-
-}
-
-
-/* =================================================
-   SCREENS
-================================================= */
-
-.screen{
-
-  min-height:100vh;
-
-  display:none;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:18px;
-
-  position:relative;
-
-}
-
-
-.active{
-
-  display:flex;
-
-}
-
-
-/* =================================================
-   CARD
-================================================= */
-
-.card{
-
-  width:min(94vw,460px);
-
-  max-height:94vh;
-
-  overflow:auto;
-
-  text-align:center;
-
-  padding:25px;
-
-  border-radius:28px;
-
-  background:rgba(0,0,0,.72);
-
-  border:1px solid rgba(255,215,0,.35);
-
-  backdrop-filter:blur(12px);
-
-  box-shadow:
-
-    0 20px 70px rgba(0,0,0,.95),
-
-    0 0 30px rgba(255,215,0,.08);
-
-}
-
-
-h1{
-
-  font-size:29px;
-
-}
-
-
-.sub{
-
-  color:#eee;
-
-  line-height:1.65;
-
-}
-
-
-/* =================================================
-   BUTTONS
-================================================= */
-
-.btn,
-.opt{
-
-  border:1px solid #FFD700;
-
-  border-radius:18px;
-
-  padding:14px 18px;
-
-  margin:7px;
-
-  background:#090909;
-
-  color:#FFD700;
-
-  font-weight:700;
-
-  font-size:15px;
-
-  cursor:pointer;
-
-  box-shadow:
-
-    0 0 10px rgba(255,215,0,.15);
-
-  transition:.2s;
-
-}
-
-
-.btn:hover,
-.opt:hover{
-
-  background:#181400;
-
-  transform:translateY(-2px);
-
-  box-shadow:
-
-    0 0 20px rgba(255,215,0,.3);
-
-}
-
-
-.btn:active,
-.opt:active{
-
-  transform:scale(.95);
-
-}
-
-
-.opt{
-
-  display:block;
-
-  width:100%;
-
-  text-align:left;
-
-}
-
-
-.opt.sel{
-
-  background:#3b3000;
-
-  border-color:#FFD700;
-
-}
-
-
-.btn:disabled{
-
-  opacity:.4;
-
-}
-
-
-/* =================================================
-   OPEN
-================================================= */
-
-.gift{
-
-  font-size:70px;
-
-  animation:giftFloat 1.8s infinite;
-
-}
-
-
-@keyframes giftFloat{
-
-  50%{
-
-    transform:translateY(-10px);
-
-  }
-
-}
-
-
-/* =================================================
-   COUNTDOWN
-================================================= */
-
-.count{
-
-  font-size:105px;
-
-  font-weight:1000;
-
-  color:#FFD700;
-
-  text-shadow:
-
-    0 0 10px #FFD700,
-
-    0 0 30px #FFD700,
-
-    0 0 60px #FFB300;
-
-}
-
-
-/* =================================================
-   PHOTO
-================================================= */
-
-.photo{
-
-  width:100%;
-
-  max-height:420px;
-
-  object-fit:cover;
-
-  border-radius:20px;
-
-  margin:10px 0;
-
-}
-
-
-/* =================================================
-   LETTER
-================================================= */
-
-.letter{
-
-  text-align:left;
-
-  line-height:1.75;
-
-  font-size:15px;
-
-}
-
-
-/* =================================================
-   CAKE
-================================================= */
-
-.cake{
-
-  font-size:110px;
-
-  animation:cakeBounce 1.5s infinite;
-
-}
-
-
-@keyframes cakeBounce{
-
-  50%{
-
-    transform:translateY(-10px);
-
-  }
-
-}
-
-
-/* =================================================
-   CANDLE
-================================================= */
-
-.flame{
-
-  font-size:70px;
-
-  transition:.8s;
-
-  filter:
-
-    drop-shadow(0 0 10px #FFD700)
-
-    drop-shadow(0 0 25px #FFB300);
-
-}
-
-
-.flame.off{
-
-  transform:scale(0);
-
-  opacity:0;
-
-}
-
-
-/* =================================================
-   BALLOONS
-================================================= */
-
-#balloonBox{
-
-  display:grid;
-
-  grid-template-columns:repeat(4,1fr);
-
-  gap:14px;
-
-  margin:20px 5px;
-
-}
-
-
-.balloon{
-
-  font-size:45px;
-
-  cursor:pointer;
-
-  user-select:none;
-
-  filter:drop-shadow(0 0 5px #FFD700);
-
-}
-
-
-.balloon.pop{
-
-  animation:balloonPop .5s forwards;
-
-}
-
-
-@keyframes balloonPop{
-
-  0%{
-
-    transform:scale(1);
-
-  }
-
-  50%{
-
-    transform:scale(1.7);
-
-  }
-
-  100%{
-
-    transform:scale(0);
-
-    opacity:0;
-
-  }
-
-}
-
-
-/* =================================================
-   BIRTHDAY WISH
-================================================= */
-
-.bigWish{
-
-  font-size:38px;
-
-  font-weight:1000;
-
-  line-height:1.35;
-
-  color:#FFD700;
-
-  text-shadow:
-
-    0 0 8px #FFD700,
-
-    0 0 25px #FFD700,
-
-    0 0 50px #FFB300;
-
-  animation:wishAppear 1.2s ease;
-
-}
-
-
-@keyframes wishAppear{
-
-  from{
-
-    transform:scale(0);
-
-    opacity:0;
-
-  }
-
-  70%{
-
-    transform:scale(1.15);
-
-  }
-
-  to{
-
-    transform:scale(1);
-
-    opacity:1;
-
-  }
-
-}
-
-
-/* =================================================
-   TEDDY
-================================================= */
-
-.teddy{
-
-  font-size:110px;
-
-  animation:teddyBounce 1.5s infinite;
-
-}
-
-
-@keyframes teddyBounce{
-
-  50%{
-
-    transform:translateY(-13px);
-
-  }
-
-}
-
-
-/* =================================================
-   CONFETTI
-================================================= */
-
-.confetti{
-
-  position:fixed;
-
-  top:-35px;
-
-  z-index:10000;
-
-  font-size:26px;
-
-  pointer-events:none;
-
-  animation:confettiFall 2.5s linear forwards;
-
-}
-
-
-@keyframes confettiFall{
-
-  to{
-
-    transform:
-      translateY(110vh)
-      rotate(720deg);
-
-    opacity:0;
-
-  }
-
-}
-
-
-/* =================================================
-   FINAL
-================================================= */
-
-.finalEmoji{
-
-  font-size:65px;
-
-  animation:finalAppear 1.2s ease;
-
-}
-
-
-@keyframes finalAppear{
-
-  from{
-
-    transform:scale(0);
-
-    opacity:0;
-
+  45%{
+    transform:rotate(-45deg) scale(1.1);
   }
 
   60%{
-
-    transform:scale(1.25);
-
+    transform:rotate(-45deg) scale(.95);
   }
 
-  to{
-
-    transform:scale(1);
-
-    opacity:1;
-
+  100%{
+    transform:rotate(-45deg) scale(10);
+    opacity:0;
   }
-
 }
 
+.introText{
+  position:absolute;
+  top:70%;
+  text-align:center;
+  color:#FFD700;
+  font-size:16px;
+  font-weight:bold;
+  letter-spacing:3px;
+  line-height:1.8;
+  text-shadow:
+    0 0 10px #FFD700,
+    0 0 25px #FFD700;
+  animation:textAppear 1.5s ease forwards;
+}
+
+@keyframes textAppear{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen{
+  min-height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.screen.active{
+  display:flex;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+  width:min(94vw,460px);
+  max-height:94vh;
+  overflow:auto;
+  padding:25px;
+  text-align:center;
+  border-radius:28px;
+  background:rgba(0,0,0,.82);
+  border:1px solid rgba(255,215,0,.35);
+  box-shadow:
+    0 0 30px rgba(255,215,0,.08),
+    0 20px 70px #000;
+}
+
+h1{
+  font-size:28px;
+  color:#fff;
+}
+
+.sub{
+  color:#eee;
+  line-height:1.7;
+}
+
+/* =========================
+   GOLD BUTTON
+========================= */
+
+.btn,
+.opt{
+  border:1px solid #FFD700;
+  border-radius:18px;
+  padding:14px 18px;
+  margin:7px;
+  background:#050505;
+  color:#FFD700;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 12px rgba(255,215,0,.12);
+  transition:.2s;
+}
+
+.btn:hover,
+.opt:hover{
+  background:#171300;
+  box-shadow:
+    0 0 15px #FFD700,
+    0 0 30px rgba(255,215,0,.25);
+  transform:translateY(-2px);
+}
+
+.btn:active,
+.opt:active{
+  transform:scale(.95);
+}
+
+.btn:disabled{
+  opacity:.4;
+}
+
+.opt{
+  display:block;
+  width:100%;
+  text-align:left;
+}
+
+.opt.selected{
+  background:#3d3100;
+  box-shadow:0 0 18px rgba(255,215,0,.4);
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift{
+  font-size:75px;
+  animation:gift 1.5s infinite;
+}
+
+@keyframes gift{
+  50%{
+    transform:translateY(-10px) rotate(3deg);
+  }
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.count{
+  font-size:110px;
+  font-weight:1000;
+  color:#FFD700;
+  text-shadow:
+    0 0 15px #FFD700,
+    0 0 40px #FFD700;
+}
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo{
+  width:100%;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:20px;
+  margin:10px 0;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+  text-align:left;
+  line-height:1.75;
+  font-size:15px;
+}
+
+/* =========================
+   CAKE
+========================= */
+
+.cake{
+  font-size:110px;
+  animation:cakeMove 1.5s infinite;
+}
+
+@keyframes cakeMove{
+  50%{
+    transform:translateY(-10px);
+  }
+}
+
+/* =========================
+   FLAME
+========================= */
+
+.flame{
+  font-size:70px;
+  filter:
+    drop-shadow(0 0 10px #FFD700)
+    drop-shadow(0 0 25px #FFB300);
+  transition:1s;
+}
+
+.flame.off{
+  transform:scale(0);
+  opacity:0;
+}
+
+/* =========================
+   BALLOONS
+========================= */
+
+#balloonBox{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin:20px 0;
+}
+
+.balloon{
+  font-size:45px;
+  cursor:pointer;
+  user-select:none;
+  filter:drop-shadow(0 0 7px #FFD700);
+}
+
+.balloon.pop{
+  animation:pop .5s forwards;
+}
+
+@keyframes pop{
+  0%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.7);
+  }
+  100%{
+    transform:scale(0);
+    opacity:0;
+  }
+}
+
+/* =========================
+   BIRTHDAY WISH
+========================= */
+
+.wish{
+  font-size:38px;
+  font-weight:1000;
+  line-height:1.4;
+  color:#FFD700;
+  text-shadow:
+    0 0 10px #FFD700,
+    0 0 25px #FFD700,
+    0 0 50px #FFB300;
+  animation:wish 1.2s ease;
+}
+
+@keyframes wish{
+  from{
+    transform:scale(0);
+    opacity:0;
+  }
+  70%{
+    transform:scale(1.15);
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+/* =========================
+   TEDDY
+========================= */
+
+.teddy{
+  font-size:115px;
+  animation:teddy 1.5s infinite;
+}
+
+@keyframes teddy{
+  50%{
+    transform:translateY(-12px);
+  }
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti{
+  position:fixed;
+  top:-30px;
+  z-index:10000;
+  font-size:25px;
+  pointer-events:none;
+  animation:fall 2.5s linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.finalEmoji{
+  font-size:65px;
+  animation:finalPop 1.2s ease;
+}
+
+@keyframes finalPop{
+  from{
+    transform:scale(0);
+    opacity:0;
+  }
+  60%{
+    transform:scale(1.2);
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
 
 .bye{
-
-  font-size:58px;
-
+  margin-top:20px;
+  font-size:55px;
   font-weight:1000;
-
   color:#FFD700;
-
   text-shadow:
-
-    0 0 10px #FFD700,
-
-    0 0 30px #FFD700,
-
-    0 0 50px #FFB300;
-
-  animation:byeAppear 1.5s ease;
-
-}
-
-
-@keyframes byeAppear{
-
-  from{
-
-    transform:scale(0);
-
-    opacity:0;
-
-  }
-
-  70%{
-
-    transform:scale(1.2);
-
-  }
-
-  to{
-
-    transform:scale(1);
-
-    opacity:1;
-
-  }
-
+    0 0 12px #FFD700,
+    0 0 30px #FFD700;
 }
 
 </style>
 </head>
 
-
 <body>
 
+<!-- =========================
+     INTRO
+========================= -->
 
-<!-- =================================================
-     SPACE INTRO
-================================================= -->
+<div id="intro">
 
-<div id="spaceIntro">
-
-  <div class="introStars"></div>
+  <div class="introStar" style="left:8%;animation-delay:.2s"></div>
+  <div class="introStar" style="left:18%;animation-delay:1s"></div>
+  <div class="introStar" style="left:31%;animation-delay:1.7s"></div>
+  <div class="introStar" style="left:45%;animation-delay:.5s"></div>
+  <div class="introStar" style="left:58%;animation-delay:2s"></div>
+  <div class="introStar" style="left:70%;animation-delay:1.2s"></div>
+  <div class="introStar" style="left:82%;animation-delay:.8s"></div>
+  <div class="introStar" style="left:94%;animation-delay:2.2s"></div>
 
   <div class="heart"></div>
 
   <div class="introText">
-
     ✨ A SPECIAL SURPRISE ✨<br>
-
     IS WAITING FOR YOU ❤️
-
   </div>
 
 </div>
 
 
-<!-- =================================================
+<!-- =========================
      SPACE BACKGROUND
-================================================= -->
+========================= -->
 
 <div class="space">
 
-  <div class="stars"></div>
+  <span class="star" style="left:5%;top:10%"></span>
+  <span class="star" style="left:12%;top:30%"></span>
+  <span class="star" style="left:20%;top:70%"></span>
+  <span class="star" style="left:27%;top:18%"></span>
+  <span class="star" style="left:35%;top:45%"></span>
+  <span class="star" style="left:43%;top:80%"></span>
+  <span class="star" style="left:51%;top:22%"></span>
+  <span class="star" style="left:58%;top:62%"></span>
+  <span class="star" style="left:65%;top:12%"></span>
+  <span class="star" style="left:72%;top:40%"></span>
+  <span class="star" style="left:80%;top:75%"></span>
+  <span class="star" style="left:88%;top:20%"></span>
+  <span class="star" style="left:95%;top:55%"></span>
 
-  <div class="stars2"></div>
-
-  <div class="stars3"></div>
+  <span class="star" style="left:8%;top:85%"></span>
+  <span class="star" style="left:16%;top:52%"></span>
+  <span class="star" style="left:32%;top:92%"></span>
+  <span class="star" style="left:48%;top:35%"></span>
+  <span class="star" style="left:63%;top:88%"></span>
+  <span class="star" style="left:77%;top:58%"></span>
+  <span class="star" style="left:91%;top:90%"></span>
 
 </div>
 
 
-<!-- =================================================
+<!-- =========================
      OPEN
-================================================= -->
+========================= -->
 
 <section id="start" class="screen active">
 
   <div class="card">
 
     <div class="gift">
-
       🎁
-
     </div>
 
     <h1>
-
       A Little Surprise For You ✨
-
     </h1>
 
     <p class="sub">
-
       Ready, Abinaya? 🥰<br>
-
       Something special is waiting... ⭐
-
     </p>
 
     <button
@@ -998,24 +588,20 @@ h1{
 </section>
 
 
-<!-- =================================================
+<!-- =========================
      COUNTDOWN
-================================================= -->
+========================= -->
 
 <section id="countdown" class="screen">
 
   <div class="card">
 
-    <div id="num" class="count">
-
+    <div id="number" class="count">
       5
-
     </div>
 
     <p class="sub">
-
       Get ready... ✨
-
     </p>
 
   </div>
@@ -1023,26 +609,24 @@ h1{
 </section>
 
 
-<!-- =================================================
+<!-- =========================
      QUESTIONS
-================================================= -->
+========================= -->
 
 <section id="questions" class="screen">
 
   <div class="card">
 
-    <small id="qno">
-
+    <small id="questionNumber">
       QUESTION 1 / 5
-
     </small>
 
-    <h1 id="qt"></h1>
+    <h1 id="questionText"></h1>
 
-    <div id="opts"></div>
+    <div id="options"></div>
 
     <button
-      id="next"
+      id="nextButton"
       class="btn"
       disabled>
 
@@ -1055,32 +639,25 @@ h1{
 </section>
 
 
-<!-- =================================================
+<!-- =========================
      CAKE + CANDLE
-================================================= -->
+========================= -->
 
 <section id="candle" class="screen">
 
   <div class="card">
 
     <h1>
-
       Make A Wish 🎂
-
     </h1>
 
     <p class="sub">
-
-      Close your eyes... make a wish... ✨<br>
-
+      Make your birthday wish... ✨<br>
       Then blow the candle! 🕯️
-
     </p>
 
     <div class="cake">
-
       🎂
-
     </div>
 
     <div
@@ -1092,7 +669,7 @@ h1{
     </div>
 
     <button
-      id="blow"
+      id="blowButton"
       class="btn"
       onclick="blowCandle()">
 
@@ -1105,18 +682,16 @@ h1{
 </section>
 
 
-<!-- =================================================
+<!-- =========================
      LETTER
-================================================= -->
+========================= -->
 
 <section id="letter" class="screen">
 
   <div class="card">
 
     <h1>
-
       💌 For You, Bestie ❤️
-
     </h1>
 
     <img
@@ -1127,730 +702,6 @@ h1{
     <div class="letter">
 
       Hi<br>
-
       Iam AARUKSHI ❤️<br><br>
 
-      HAPPY BIRTHDAY 🎂🥰<br><br>
-
-      HAPPY YA IRUGGO SAFE AH IRUGGO.
-      INDELA IRUNTHU PALAYA VIDAYAGGALAI ELLAM
-      MARANTHUDDU HAPPY YA IRUGGO AND YAR ENA
-      SONNALUM KEKKATHA AND INTHA BIRTHDAY LA
-      IRUNTHU AAVATHU ALATHA SINNA SINNA
-      VISHAYATHTHUKKU ELLAM ALATHA OK.<br><br>
-
-      HAPPY YA IRU NEEGGA HAPPY YA IRUKKA
-      AS A FRIEND AH ENA SEIYANUMO ATHA NAN SEIVAN.
-      YARUM ILLA ALONE NNU ELLAM THINK PANNATHA
-      JUST FRD NAN. IRUKKAN OK SAFE AH HAPPY YA
-      UN JOURNEY YA THODAGGUGGO.<br><br>
-
-      AND IVALAVU NAL NAN SEIYURA THONTHARAVU
-      AND KASTAM ELLATHTHUKKUM SORRY.
-      NANE UNNA EVVALAVO ALA VACHCHURUKKAN SORRY.<br><br>
-
-      ITHELLAM MARNTHU EN ENNA KUDA MARANTHU
-      PUTHU ALAGANA JOURNEY YA THODAGGU.<br><br>
-
-      WISH YOUR MANY MORE HAPPY RETURNS OF THE DAY 🎂🥰<br><br>
-
-      AND ITHA NAN COODING KUDUTHU THAN
-      ORUVAKKINAN NAN ATHULA MATHINAN FRD NNU
-      ATHU MARUTHU ILLA MARINA COODING ERROR NNU
-      KADDUTHU ITHUKKU NAN KARAM ILLA SORRY.<br><br>
-
-      <strong>
-
-        By - JUST FRIEND ❤️
-
-      </strong>
-
-    </div>
-
-    <button
-      class="btn"
-      onclick="show('balloons')">
-
-      CONTINUE → 🎈
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =================================================
-     BALLOONS
-================================================= -->
-
-<section id="balloons" class="screen">
-
-  <div class="card">
-
-    <h1>
-
-      16 Little Wishes ❤️
-
-    </h1>
-
-    <p class="sub">
-
-      Tap all 16 balloons! 🎈
-
-    </p>
-
-    <div id="balloonBox"></div>
-
-    <p
-      id="balloonText"
-      class="sub">
-
-      16 left ❤️
-
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =================================================
-     BIRTHDAY
-================================================= -->
-
-<section id="birthday" class="screen">
-
-  <div class="card">
-
-    <div class="finalEmoji">
-
-      🎉🎈✨❤️✨🎈🎉
-
-    </div>
-
-    <div class="bigWish">
-
-      HAPPY BIRTHDAY<br>
-
-      ABINAYA ❤️
-
-    </div>
-
-    <p class="sub">
-
-      16 wishes popped! 🎉
-
-    </p>
-
-    <button
-      class="btn"
-      onclick="show('teddy')">
-
-      NEXT → 🧸
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =================================================
-     TEDDY
-================================================= -->
-
-<section id="teddy" class="screen">
-
-  <div class="card">
-
-    <div class="teddy">
-
-      🧸
-
-    </div>
-
-    <h1>
-
-      Special Teddy Wish ❤️
-
-    </h1>
-
-    <p class="sub">
-
-      Happy Birthday Abinaya! ❤️<br><br>
-
-      Always smile, stay happy and enjoy
-      your beautiful journey. 🥰✨
-
-    </p>
-
-    <button
-      class="btn"
-      onclick="show('secondCake')">
-
-      NEXT → 🎂
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =================================================
-     SECOND CAKE
-================================================= -->
-
-<section id="secondCake" class="screen">
-
-  <div class="card">
-
-    <h1>
-
-      One More Cake For You 🎂
-
-    </h1>
-
-    <div class="cake">
-
-      🎂
-
-    </div>
-
-    <p class="sub">
-
-      Because one cake is never enough! 😄❤️
-
-    </p>
-
-    <button
-      class="btn"
-      onclick="finalPage()">
-
-      FINAL SURPRISE 🎉
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =================================================
-     FINAL
-================================================= -->
-
-<section id="final" class="screen">
-
-  <div class="card">
-
-    <div class="finalEmoji">
-
-      🎉❤️🎂❤️🎉
-
-    </div>
-
-    <div class="bigWish">
-
-      ENJOY YOUR 16 ❤️
-
-    </div>
-
-    <img
-      class="photo"
-      src="abhinaya1.jpg"
-      alt="Abinaya">
-
-    <p class="sub">
-
-      Happy Birthday once again, Abinaya! 🥰❤️
-
-    </p>
-
-    <div class="bye">
-
-      BYE 👋❤️
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<script>
-
-/* =================================================
-   QUESTIONS
-================================================= */
-
-const questions=[
-
-  [
-
-    "நான் உனக்கு யாரு? 👀",
-
-    [
-
-      "Frd.",
-
-      "Best frd. ❤️",
-
-      "Bestie 🫶",
-
-      "Favourite person ❤️"
-
-    ]
-
-  ],
-
-  [
-
-    "நான் உனக்கு எவ்வளவு பிடிக்கும்? 🥹❤️",
-
-    [
-
-      "25%",
-
-      "50%",
-
-      "75%",
-
-      "100% ❤️"
-
-    ]
-
-  ],
-
-  [
-
-    "நம்ம friendship-ல உனக்கு அதிகம் பிடித்தது எது? 💭",
-
-    [
-
-      "நம்ம talks 💬",
-
-      "நம்ம memories 📸",
-
-      "நம்ம craziness 😂",
-
-      "எல்லாமே ❤️"
-
-    ]
-
-  ],
-
-  [
-
-    "நம்ம friendship-ஐ ஒரு வார்த்தையில் சொல்லணும்னா? ✨",
-
-    [
-
-      "Special ❤️",
-
-      "Crazy 😂",
-
-      "Unforgettable 🥹",
-
-      "Forever ♾️"
-
-    ]
-
-  ],
-
-  [
-
-    "நம்ம friendship எவ்வளவு காலம் இருக்கணும்? ♾️",
-
-    [
-
-      "1 year",
-
-      "10 years",
-
-      "50 years",
-
-      "Forever ♾️❤️"
-
-    ]
-
-  ]
-
-];
-
-
-let questionIndex=0;
-
-let popped=0;
-
-
-/* =================================================
-   SHOW SCREEN
-================================================= */
-
-function show(id){
-
-  document
-    .querySelectorAll(".screen")
-    .forEach(screen=>{
-
-      screen.classList.remove("active");
-
-    });
-
-
-  document
-    .getElementById(id)
-    .classList.add("active");
-
-
-  if(id==="balloons"){
-
-    createBalloons();
-
-  }
-
-}
-
-
-/* =================================================
-   COUNTDOWN
-================================================= */
-
-function startCountdown(){
-
-  show("countdown");
-
-  let number=5;
-
-  const display=
-    document.getElementById("num");
-
-  display.textContent=number;
-
-
-  const timer=setInterval(()=>{
-
-    number--;
-
-    display.textContent=number;
-
-
-    if(number<=0){
-
-      clearInterval(timer);
-
-
-      setTimeout(()=>{
-
-        show("questions");
-
-        renderQuestion();
-
-      },500);
-
-    }
-
-  },1000);
-
-}
-
-
-/* =================================================
-   QUESTIONS
-================================================= */
-
-function renderQuestion(){
-
-  const question=
-    questions[questionIndex];
-
-
-  document.getElementById("qno")
-    .textContent=
-    "QUESTION "+
-    (questionIndex+1)+
-    " / 5";
-
-
-  document.getElementById("qt")
-    .textContent=
-    question[0];
-
-
-  const options=
-    document.getElementById("opts");
-
-  const next=
-    document.getElementById("next");
-
-
-  options.innerHTML="";
-
-  next.disabled=true;
-
-
-  question[1].forEach(answer=>{
-
-    const button=
-      document.createElement("button");
-
-
-    button.className="opt";
-
-    button.textContent=answer;
-
-
-    button.onclick=()=>{
-
-      document
-        .querySelectorAll(".opt")
-        .forEach(item=>{
-
-          item.classList.remove("sel");
-
-        });
-
-
-      button.classList.add("sel");
-
-      next.disabled=false;
-
-    };
-
-
-    options.appendChild(button);
-
-  });
-
-
-  next.onclick=()=>{
-
-    questionIndex++;
-
-
-    if(questionIndex<questions.length){
-
-      renderQuestion();
-
-    }
-
-    else{
-
-      show("candle");
-
-    }
-
-  };
-
-}
-
-
-/* =================================================
-   CANDLE
-================================================= */
-
-function blowCandle(){
-
-  const flame=
-    document.getElementById("flame");
-
-  const button=
-    document.getElementById("blow");
-
-
-  flame.classList.add("off");
-
-  button.disabled=true;
-
-
-  confetti(50);
-
-
-  setTimeout(()=>{
-
-    show("letter");
-
-  },1800);
-
-}
-
-
-/* =================================================
-   CONFETTI
-================================================= */
-
-function confetti(amount){
-
-  const icons=[
-
-    "🎉",
-    "✨",
-    "❤️",
-    "🎊",
-    "🎈",
-    "⭐"
-
-  ];
-
-
-  for(let i=0;i<amount;i++){
-
-    const piece=
-      document.createElement("div");
-
-
-    piece.className="confetti";
-
-
-    piece.textContent=
-      icons[
-        Math.floor(
-          Math.random()*icons.length
-        )
-      ];
-
-
-    piece.style.left=
-      Math.random()*95+"vw";
-
-
-    piece.style.animationDuration=
-      (1.8+
-       Math.random()*1.7)+
-      "s";
-
-
-    document.body.appendChild(piece);
-
-
-    setTimeout(()=>{
-
-      piece.remove();
-
-    },4000);
-
-  }
-
-}
-
-
-/* =================================================
-   BALLOONS
-================================================= */
-
-function createBalloons(){
-
-  const box=
-    document.getElementById("balloonBox");
-
-
-  box.innerHTML="";
-
-  popped=0;
-
-
-  document.getElementById("balloonText")
-    .textContent=
-    "16 left ❤️";
-
-
-  for(let i=0;i<16;i++){
-
-    const balloon=
-      document.createElement("div");
-
-
-    balloon.className="balloon";
-
-    balloon.textContent="🎈";
-
-
-    balloon.onclick=()=>{
-
-      if(
-        balloon.classList.contains("pop")
-      ){
-
-        return;
-
-      }
-
-
-      balloon.classList.add("pop");
-
-
-      popped++;
-
-
-      confetti(8);
-
-
-      const left=
-        16-popped;
-
-
-      document.getElementById("balloonText")
-        .textContent=
-        left+" left ❤️";
-
-
-      if(popped===16){
-
-        document.getElementById("balloonText")
-          .textContent=
-          "16/16 POPPED! 🎉❤️";
-
-
-        setTimeout(()=>{
-
-          show("birthday");
-
-          confetti(70);
-
-        },1200);
-
-      }
-
-    };
-
-
-    box.appendChild(balloon);
-
-  }
-
-}
-
-
-/* =================================================
-   FINAL
-================================================= */
-
-function finalPage(){
-
-  show("final");
-
-
-  confetti(80);
-
-
-  setTimeout(()=>{
-
-    confetti(50);
-
-  },1000);
-
-
-  setTimeout(()=>{
-
-    confetti(40);
-
-  },2200);
-
-}
-
-</script>
-
-</body>
-</html>
+      HAPPY BIRTHDAY 🎂
