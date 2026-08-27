@@ -6,151 +6,554 @@
 <title>Happy Birthday Abinaya 💜</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
-
-html,body{
-  margin:0;
-  padding:0;
-  width:100%;
-  min-height:100%;
-}
-
+*{box-sizing:border-box}
 body{
-  font-family:system-ui,sans-serif;
-  background:#05000d;
+  margin:0;
+  font-family:Arial,sans-serif;
   color:white;
+  background:#05000d;
   overflow-x:hidden;
 }
 
-/* ===== SPACE BACKGROUND ===== */
-
+/* SPACE */
 .space{
   position:fixed;
   inset:0;
-  z-index:-10;
-  overflow:hidden;
+  z-index:-1;
   background:
-    radial-gradient(circle at 50% 20%,#431060 0%,#160522 38%,#05000d 80%);
+    radial-gradient(circle at 50% 20%,#5b1680,#19052b 45%,#030006 100%);
 }
-
-.stars,
-.stars2,
-.stars3{
+.stars,.stars2{
   position:absolute;
   inset:-50%;
   width:200%;
   height:200%;
   background-repeat:repeat;
-  pointer-events:none;
 }
-
 .stars{
-  background-image:
-    radial-gradient(circle,#fff 1px,transparent 1.5px);
-  background-size:75px 75px;
-  animation:moveStars 35s linear infinite;
-  opacity:.75;
+  background-image:radial-gradient(circle,#fff 1px,transparent 1.5px);
+  background-size:70px 70px;
+  animation:move 35s linear infinite;
 }
-
 .stars2{
-  background-image:
-    radial-gradient(circle,#dcb7ff 1.2px,transparent 1.8px);
-  background-size:120px 120px;
-  animation:moveStars 55s linear infinite reverse;
-  opacity:.55;
+  background-image:radial-gradient(circle,#dcb7ff 1px,transparent 1.8px);
+  background-size:130px 130px;
+  animation:twinkle 2s infinite alternate;
 }
-
-.stars3{
-  background-image:
-    radial-gradient(circle,#fff 1.5px,transparent 2px);
-  background-size:190px 190px;
-  animation:twinkle 2.5s ease-in-out infinite alternate;
-  opacity:.7;
+@keyframes move{
+  to{transform:translate(-100px,80px)}
 }
-
-@keyframes moveStars{
-  from{
-    transform:translate(0,0);
-  }
-  to{
-    transform:translate(-120px,80px);
-  }
-}
-
 @keyframes twinkle{
-  from{
-    opacity:.25;
-  }
-  to{
-    opacity:1;
-  }
+  from{opacity:.25}
+  to{opacity:1}
 }
 
-/* ===== SCREENS ===== */
-
+/* SCREEN */
 .screen{
   min-height:100vh;
   display:none;
   align-items:center;
   justify-content:center;
   padding:18px;
-  position:relative;
 }
+.active{display:flex}
 
-.active{
-  display:flex;
-}
-
-/* ===== CARD ===== */
-
+/* CARD */
 .card{
   width:min(94vw,460px);
   max-height:94vh;
   overflow:auto;
   text-align:center;
   padding:25px;
-  border-radius:30px;
-  background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.15);
-  backdrop-filter:blur(15px);
-  box-shadow:
-    0 20px 70px rgba(0,0,0,.7),
-    0 0 35px rgba(168,91,223,.2);
+  border-radius:28px;
+  background:#ffffff12;
+  backdrop-filter:blur(14px);
+  border:1px solid #ffffff22;
+  box-shadow:0 20px 60px #0009;
 }
 
-h1{
-  font-size:29px;
-  margin-top:10px;
-}
+h1{font-size:28px}
+.sub{color:#eadcf4;line-height:1.6}
 
-.sub{
-  line-height:1.6;
-  color:#eadcf4;
-}
-
-/* ===== BUTTONS ===== */
-
-.btn,
-.opt{
+/* BUTTON */
+.btn,.opt{
   border:0;
   border-radius:18px;
   padding:14px 18px;
   margin:7px;
-  background:linear-gradient(135deg,#a85bdf,#7130a5);
+  background:linear-gradient(135deg,#b45be5,#7130a5);
   color:white;
-  font-weight:700;
+  font-weight:bold;
   font-size:15px;
   cursor:pointer;
-  box-shadow:0 7px 20px rgba(0,0,0,.3);
-  transition:.2s;
+}
+.btn:active,.opt:active{transform:scale(.95)}
+.opt{display:block;width:100%;text-align:left;background:#ffffff18}
+.opt.sel{background:#a85bdf}
+
+/* COUNT */
+.count{
+  font-size:100px;
+  font-weight:900;
+  text-shadow:0 0 30px #c96cff;
 }
 
-.btn:hover,
-.opt:hover{
-  transform:translateY(-2px) scale(1.02);
+/* PHOTOS */
+.photo{
+  width:100%;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:20px;
 }
 
-.btn:active,
-.opt:
+/* LETTER */
+.letter{
+  text-align:left;
+  line-height:1.75;
+  font-size:15px;
+}
+
+/* CAKE */
+.cake{
+  font-size:105px;
+  animation:bounce 1.5s infinite;
+}
+@keyframes bounce{
+  50%{transform:translateY(-10px)}
+}
+
+/* FLAME */
+.flame{
+  font-size:70px;
+  transition:.7s;
+}
+.flame.off{
+  transform:scale(0);
+  opacity:0;
+}
+
+/* BALLOONS */
+#balloonBox{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin:20px 5px;
+}
+.balloon{
+  font-size:44px;
+  cursor:pointer;
+}
+.balloon.pop{
+  animation:pop .45s forwards;
+}
+@keyframes pop{
+  50%{transform:scale(1.6)}
+  100%{transform:scale(0);opacity:0}
+}
+
+/* WISH */
+.bigWish{
+  font-size:38px;
+  font-weight:1000;
+  line-height:1.3;
+  text-shadow:0 0 25px #d06cff;
+  animation:appear 1s ease;
+}
+@keyframes appear{
+  from{transform:scale(0);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+/* TEDDY */
+.teddy{
+  font-size:105px;
+  animation:bounce 1.5s infinite;
+}
+
+/* CONFETTI */
+.conf{
+  position:fixed;
+  top:-30px;
+  z-index:100;
+  font-size:25px;
+  animation:fall 2.5s linear forwards;
+}
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+/* FINAL */
+.final{
+  font-size:60px;
+  animation:appear 1s ease;
+}
+.bye{
+  font-size:55px;
+  font-weight:1000;
+  text-shadow:0 0 25px #d06cff;
+  animation:appear 1.5s ease;
+}
+</style>
+</head>
+
+<body>
+
+<div class="space">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+</div>
+
+<!-- OPEN -->
+<section id="start" class="screen active">
+<div class="card">
+  <div style="font-size:65px">🎁💜</div>
+  <h1>A Little Surprise For You ✨</h1>
+  <p class="sub">Ready, Abinaya? 🥰<br>Something special is waiting... 🌌⭐</p>
+  <button class="btn" onclick="startCountdown()">OPEN MY SURPRISE ✨</button>
+</div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown" class="screen">
+<div class="card">
+  <div id="num" class="count">5</div>
+  <p class="sub">Get ready... 💜</p>
+</div>
+</section>
+
+<!-- QUESTIONS -->
+<section id="questions" class="screen">
+<div class="card">
+  <small id="qno">QUESTION 1 / 5</small>
+  <h1 id="qt"></h1>
+  <div id="opts"></div>
+  <button id="next" class="btn" disabled>NEXT →</button>
+</div>
+</section>
+
+<!-- FIRST CAKE -->
+<section id="candle" class="screen">
+<div class="card">
+  <h1>Make A Wish 🎂</h1>
+  <p class="sub">Make your birthday wish and blow the candle! 💜</p>
+  <div class="cake">🎂</div>
+  <div id="flame" class="flame">🕯️</div>
+  <button id="blow" class="btn" onclick="blowCandle()">BLOW THE CANDLE 🕯️</button>
+</div>
+</section>
+
+<!-- LETTER -->
+<section id="letter" class="screen">
+<div class="card">
+  <h1>💌 For You, Bestie 💜</h1>
+
+  <img class="photo" src="abhinaya1.jpg" alt="Abinaya">
+
+  <div class="letter">
+  Hi<br>
+  Iam AARUKSHI 💜<br><br>
+
+  HAPPY BIRTHDAY 🎂🥰<br><br>
+
+  HAPPY YA IRUGGO SAFE AH IRUGGO.
+  INDELA IRUNTHU PALAYA VIDAYAGGALAI ELLAM
+  MARANTHUDDU HAPPY YA IRUGGO AND YAR ENA
+  SONNALUM KEKKATHA AND INTHA BIRTHDAY LA
+  IRUNTHU AAVATHU ALATHA SINNA SINNA
+  VISHAYATHTHUKKU ELLAM ALATHA OK.<br><br>
+
+  HAPPY YA IRU NEEGGA HAPPY YA IRUKKA
+  AS A FRIEND AH ENA SEIYANUMO ATHA NAN SEIVAN.
+  YARUM ILLA ALONE NNU ELLAM THINK PANNATHA
+  JUST FRD NAN. IRUKKAN OK SAFE AH HAPPY YA
+  UN JOURNEY YA THODAGGUGGO.<br><br>
+
+  AND IVALAVU NAL NAN SEIYURA THONTHARAVU
+  AND KASTAM ELLATHTHUKKUM SORRY.
+  NANE UNNA EVVALAVO ALA VACHCHURUKKAN SORRY.<br><br>
+
+  ITHELLAM MARNTHU EN ENNA KUDA MARANTHU
+  PUTHU ALAGANA JOURNEY YA THODAGGU.<br><br>
+
+  WISH YOUR MANY MORE HAPPY RETURNS OF THE DAY 🎂🥰<br><br>
+
+  <strong>By - JUST FRIEND 💜</strong>
+  </div>
+
+  <button class="btn" onclick="show('balloons')">CONTINUE → 🎈</button>
+</div>
+</section>
+
+<!-- BALLOONS -->
+<section id="balloons" class="screen">
+<div class="card">
+  <h1>16 Little Wishes 💜</h1>
+  <p class="sub">Tap all 16 balloons! 🎈</p>
+  <div id="balloonBox"></div>
+  <p id="balloonText" class="sub">16 left 💜</p>
+</div>
+</section>
+
+<!-- BIRTHDAY WISH -->
+<section id="birthday" class="screen">
+<div class="card">
+  <div class="final">🎉🎈✨💜✨🎈🎉</div>
+  <div class="bigWish">HAPPY BIRTHDAY<br>ABINAYA ❤️</div>
+  <p class="sub">All 16 wishes are yours! 🥰</p>
+  <button class="btn" onclick="show('teddy')">NEXT → 🧸</button>
+</div>
+</section>
+
+<!-- TEDDY -->
+<section id="teddy" class="screen">
+<div class="card">
+  <div class="teddy">🧸💜</div>
+  <h1>Special Teddy Wish</h1>
+  <p class="sub">
+    Happy Birthday Abinaya! 💜<br>
+    Always smile, stay happy and enjoy your beautiful journey. 🥰
+  </p>
+  <button class="btn" onclick="show('secondCake')">NEXT → 🎂</button>
+</div>
+</section>
+
+<!-- SECOND CAKE -->
+<section id="secondCake" class="screen">
+<div class="card">
+  <h1>One More Cake 🎂</h1>
+  <div class="cake">🎂</div>
+  <p class="sub">Because one cake is never enough! 😄💜</p>
+  <button class="btn" onclick="finalPage()">FINAL SURPRISE 🎉</button>
+</div>
+</section>
+
+<!-- FINAL -->
+<section id="final" class="screen">
+<div class="card">
+  <div class="final">🎉💜🎂💜🎉</div>
+  <div class="bigWish">ENJOY YOUR 16 ❤️</div>
+  <img class="photo" src="abhinaya1.jpg" alt="Abinaya">
+  <p class="sub">Happy Birthday once again, Abinaya! 🥰💜</p>
+  <div class="bye">BYE 👋💜</div>
+</div>
+</section>
+
+<script>
+
+const questions=[
+[
+"நான் உனக்கு யாரு? 👀",
+["Frd.","Best frd. 💜","Bestie 🫶","Favourite person ❤️"]
+],
+[
+"நான் உனக்கு எவ்வளவு பிடிக்கும்? 🥹💜",
+["25%","50%","75%","100% ❤️"]
+],
+[
+"நம்ம friendship-ல உனக்கு அதிகம் பிடித்தது எது? 💭",
+["நம்ம talks 💬","நம்ம memories 📸","நம்ம craziness 😂","எல்லாமே 💜"]
+],
+[
+"நம்ம friendship-ஐ ஒரு வார்த்தையில் சொல்லணும்னா? ✨",
+["Special 💜","Crazy 😂","Unforgettable 🥹","Forever ♾️"]
+],
+[
+"நம்ம friendship எவ்வளவு காலம் இருக்கணும்? ♾️",
+["1 year","10 years","50 years","Forever ♾️💜"]
+]
+];
+
+let qi=0;
+let popped=0;
+
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+
+  if(id==="balloons") createBalloons();
+}
+
+function startCountdown(){
+
+  show("countdown");
+
+  let n=5;
+  const display=document.getElementById("num");
+
+  display.textContent=n;
+
+  const timer=setInterval(()=>{
+
+    n--;
+    display.textContent=n;
+
+    if(n<=0){
+
+      clearInterval(timer);
+
+      setTimeout(()=>{
+        show("questions");
+        renderQuestion();
+      },500);
+    }
+
+  },1000);
+}
+
+function renderQuestion(){
+
+  const q=questions[qi];
+
+  document.getElementById("qno").textContent=
+    "QUESTION "+(qi+1)+" / 5";
+
+  document.getElementById("qt").textContent=q[0];
+
+  const opts=document.getElementById("opts");
+  const next=document.getElementById("next");
+
+  opts.innerHTML="";
+  next.disabled=true;
+
+  q[1].forEach(answer=>{
+
+    const b=document.createElement("button");
+
+    b.className="opt";
+    b.textContent=answer;
+
+    b.onclick=()=>{
+
+      document.querySelectorAll(".opt")
+        .forEach(x=>x.classList.remove("sel"));
+
+      b.classList.add("sel");
+      next.disabled=false;
+
+    };
+
+    opts.appendChild(b);
+
+  });
+
+  next.onclick=()=>{
+
+    qi++;
+
+    if(qi<questions.length){
+
+      renderQuestion();
+
+    }else{
+
+      show("candle");
+
+    }
+
+  };
+}
+
+function blowCandle(){
+
+  document.getElementById("flame")
+    .classList.add("off");
+
+  document.getElementById("blow")
+    .disabled=true;
+
+  confetti(45);
+
+  setTimeout(()=>{
+    show("letter");
+  },1800);
+}
+
+function confetti(amount){
+
+  const icons=["🎉","✨","💜","🎊","🎈"];
+
+  for(let i=0;i<amount;i++){
+
+    const c=document.createElement("div");
+
+    c.className="conf";
+    c.textContent=icons[Math.floor(Math.random()*icons.length)];
+
+    c.style.left=Math.random()*95+"vw";
+
+    document.body.appendChild(c);
+
+    setTimeout(()=>{
+      c.remove();
+    },3500);
+  }
+}
+
+function createBalloons(){
+
+  const box=document.getElementById("balloonBox");
+
+  box.innerHTML="";
+  popped=0;
+
+  document.getElementById("balloonText").textContent=
+    "16 left 💜";
+
+  for(let i=0;i<16;i++){
+
+    const b=document.createElement("div");
+
+    b.className="balloon";
+    b.textContent="🎈";
+
+    b.onclick=()=>{
+
+      if(b.classList.contains("pop")) return;
+
+      b.classList.add("pop");
+      popped++;
+
+      confetti(7);
+
+      const left=16-popped;
+
+      document.getElementById("balloonText").textContent=
+        left+" left 💜";
+
+      if(popped===16){
+
+        document.getElementById("balloonText").textContent=
+          "16/16 POPPED! 🎉❤️";
+
+        setTimeout(()=>{
+          show("birthday");
+          confetti(55);
+        },1200);
+
+      }
+
+    };
+
+    box.appendChild(b);
+  }
+}
+
+function finalPage(){
+
+  show("final");
+
+  confetti(70);
+
+  setTimeout(()=>{
+    confetti(50);
+  },1000);
+
+}
+
+</script>
+
+</body>
+  </html>
